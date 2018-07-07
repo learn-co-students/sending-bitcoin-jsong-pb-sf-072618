@@ -7,7 +7,6 @@
 
 
 ```python
-reload(tx)
 from ecc import PrivateKey
 from helper import decode_base58, p2pkh_script, SIGHASH_ALL
 from script import Script
