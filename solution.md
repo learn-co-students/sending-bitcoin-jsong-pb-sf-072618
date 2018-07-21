@@ -3,7 +3,7 @@
 
 #### Send 0.04 TBTC to this address `muvpVznkBtk8rRSxLRVQRdUhsMjS7aKRne`
 
-#### Go here to send your transaction: https://testnet.blockexplorer.com/tx/send
+#### Go here to send your transaction: https://testnet.blockexplorer.com/tx/send or https://live.blockcypher.com/btc-testnet/pushtx/
 
 
 ```python
@@ -11,7 +11,7 @@ from ecc import PrivateKey
 from helper import decode_base58, p2pkh_script, SIGHASH_ALL
 from script import Script
 from tx import TxIn, TxOut, Tx
-
+    
 prev_tx = bytes.fromhex('0025bc3c0fa8b7eb55b9437fdbd016870d18e0df0ace7bc9864efc38414147c8')
 prev_index = 0
 target_address = 'muvpVznkBtk8rRSxLRVQRdUhsMjS7aKRne'
@@ -20,7 +20,6 @@ change_address = 'muvpVznkBtk8rRSxLRVQRdUhsMjS7aKRne'
 change_amount = 1.07
 secret = 8675309
 priv = PrivateKey(secret=secret)
-print(priv.point.address(testnet=True))
 
 # initialize inputs
 tx_ins = []
@@ -72,7 +71,7 @@ if tx_ins[0].script_pubkey(testnet=True).elements[2] != decode_base58(change_add
     raise RuntimeError('Output is not something you can spend with this private key. Check that the prev_tx and prev_index are correct')
 
 # SANITY CHECK: fee is reasonable
-if tx_obj.fee(testnet=True) > 0.05*100000000 or tx_obj.fee(testnet=True) <= 0:
+if tx_obj.fee() > 0.05*100000000 or tx_obj.fee() <= 0:
     raise RuntimeError('Check that the change amount is reasonable. Fee is {}'.format(tx_obj.fee()))
 
 # serialize and hex()
