@@ -3,7 +3,7 @@
 
 #### Send 0.04 TBTC to this address `muvpVznkBtk8rRSxLRVQRdUhsMjS7aKRne`
 
-#### Go here to send your transaction: https://testnet.blockexplorer.com/tx/send
+#### Go here to send your transaction: https://testnet.blockexplorer.com/tx/send or https://live.blockcypher.com/btc-testnet/pushtx/
 
 
 ```python
